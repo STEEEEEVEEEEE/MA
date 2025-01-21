@@ -175,4 +175,4 @@ class Transformation():
         tilt = self.cart_tilt
 
 standard_rectangle = pyglet.shapes.Rectangle(0, 0, 0, 0, color=(255, 255, 255), batch=batch)  #rectangle instance for the fixture rectangle
-transformer = Transformation(303,os.path.join('Calibration_files', f'Calibration.txt'),standard_rectangle, outofboundser)      #class instance of Transformation class
+transformer = Transformation(303,os.path.join(base_dir, 'Calibration_files', f'Calibration.txt'),standard_rectangle, outofboundser)      #class instance of Transformation class

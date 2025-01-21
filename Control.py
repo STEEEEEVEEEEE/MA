@@ -122,15 +122,15 @@ class Joystick2:
             if keys[key.LALT]:
                 self.rq = -1
             else:
-                self.rq = -0.5
+                self.rq = -0.4
 
         elif keys[key.LCTRL]:
             if keys[key.LALT]:
-                self.rq = 0.9
+                self.rq = 0.99
             else:
-                self.rq = 0.5
+                self.rq = 0.6
         else:
-            self.rq = 0
+            self.rq = 0.2
         self.z += 0.03 if keys[key.RSHIFT] else -0.03 if keys[key.RCTRL] else 0
         self.z = clamp(self.z, -1, 1)
 

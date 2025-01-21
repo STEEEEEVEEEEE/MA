@@ -8,7 +8,7 @@ from pyglet.window import mouse
 from Control import *
 import os
 
-
+base_dir = os.path.dirname(__file__)
 MA3_IP = "192.168.1.33"  # Replace with your GrandMA3 console's IP address
 MA3_OSC_PORT = 8000    # OSC port for GrandMA3
 
@@ -22,7 +22,7 @@ intensity = 0
                   
 window = pyglet.window.Window(fullscreen = True) #define window, fullscreen can be changed to width = ... , height = ....
 window.set_caption("Lightcontroller")            #to enable windowed mode with the specified resolution
-font.add_file(os.path.join('Sprites', 'helvetica', 'Helvetica.ttf'))  #font for the labels
+font.add_file(os.path.join(base_dir, 'Sprites', 'helvetica', 'Helvetica.ttf'))  #font for the labels
 helvetica = font.load('Helvetica', 36)                #font size for the labels
 
 

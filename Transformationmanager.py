@@ -23,7 +23,7 @@ class TransManager():
         Adds a new transformation instance to the transformation list
         """
 
-        calibration_file = os.path.join('Calibration_files', f'Calibration_{(fixture_id)}.txt')
+        calibration_file = os.path.join(base_dir, 'Calibration_files', f'Calibration_{(fixture_id)}.txt')
         out_of_bounds_instance = Out_of_bounds()
         self.out_of_bounds_instances.append(out_of_bounds_instance)
 
@@ -46,7 +46,7 @@ class TransManager():
         """
         Writes the fixture ID and the list of 4 stage-corner coordinates to a new Calibration_x.txt file
         """
-        filename = os.path.join('Calibration_files', f'Calibration_{fixture_id}.txt')
+        filename = os.path.join(base_dir, 'Calibration_files', f'Calibration_{fixture_id}.txt')
         with open(filename, 'w') as file:
             for line in lines:
                 line = str(line) + "\n"
@@ -141,7 +141,7 @@ class TransManager():
             "fixture_ids": [transformation.fixture_id for transformation in self.transformations],
             "positions": [(rectangle.x/window.width, rectangle.y/window.height) for rectangle in self.rectangles]
         }
-        json_name = os.path.join('Calibration_files', 'state.json')
+        json_name = os.path.join(base_dir, 'Calibration_files', 'state.json')
         os.makedirs(os.path.dirname(json_name), exist_ok=True)  # Ensure the directory exists
         with open(json_name, 'w') as file:
             json.dump(state, file)
@@ -151,7 +151,7 @@ class TransManager():
         Loads the state of the transformations from a JSON file
         """
         try:
-            json_name = os.path.join('Calibration_files', 'state.json')
+            json_name = os.path.join(base_dir, 'Calibration_files', 'state.json')
             with open(json_name, 'r') as file:
                 state = json.load(file)
                 for fixture_id, position in zip(state["fixture_ids"], state["positions"]):
